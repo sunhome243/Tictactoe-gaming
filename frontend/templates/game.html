@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+        <div class="player-info">
+            <div class="player" id="player1">
+                <div class="marker" style="background-color: blue;"></div>
+                <span id="player1-name">{{ game_data.player1.name }}</span>
+                <span>Wins: <span id="player1-wins">{{ game_data.player1.wins }}</span></span>
+                <span>Streak: <span id="player1-streak">{{ game_data.player1.win_streak }}</span></span>
+                <span>Best Streak: <span id="player1-best-streak">{{ game_data.player1.best_win_streak }}</span></span>
+            </div>
+            <div class="player" id="player2">
+                <div class="marker" style="background-color: red;"></div>
+                <span id="player2-name">{{ game_data.player2.name }}</span>
+                <span>Wins: <span id="player2-wins">{{ game_data.player2.wins }}</span></span>
+                <span>Streak: <span id="player2-streak">{{ game_data.player2.win_streak }}</span></span>
+                <span>Best Streak: <span id="player2-best-streak">{{ game_data.player2.best_win_streak }}</span></span>
+            </div>
+        </div>
+        <div class="game-board">
+            <div class="row">
+                <button class="cell" data-index="0"></button>
+                <button class="cell" data-index="1"></button>
+                <button class="cell" data-index="2"></button>
+            </div>
+            <div class="row">
+                <button class="cell" data-index="3"></button>
+                <button class="cell" data-index="4"></button>
+                <button class="cell" data-index="5"></button>
+            </div>
+            <div class="row">
+                <button class="cell" data-index="6"></button>
+                <button class="cell" data-index="7"></button>
+                <button class="cell" data-index="8"></button>
+            </div>
+        </div>
+        <div class="game-info">
+            <div id="starting-player"></div> 
+            <div id="current-player">Current Player: {{ game_data.current_player }}</div>
+            <div id="game-over" style="display: none;">Game Over!</div>
+            <button id="restart-button">Restart Game</button>
+        </div>
+    </div>
+    <script src="/static/game.js"></script>
+</body>
+</html>

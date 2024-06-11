@@ -1,0 +1,12 @@
+# Use a lightweight base image like Nginx
+FROM nginx:alpine
+
+# Copy your frontend files
+COPY ./frontend/templates /usr/share/nginx/html
+COPY /Users/rocket/Documents/GitHub/Tictactoe-webapp/frontend/static /usr/share/nginx/html/static
+
+# Expose port 80 (default for Nginx)
+EXPOSE 80
+
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]

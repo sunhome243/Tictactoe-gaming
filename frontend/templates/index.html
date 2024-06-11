@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+        <form id="game-form">
+            <div class="input-section">
+                <label for="num_players">Choose the Number of Players:</label>
+                <div class="button-group">
+                    <button type="button" id="onePlayerButton" class="num-players-button">One player</button>
+                    <button type="button" id="twoPlayersButton" class="num-players-button">Two Players</button>
+                </div>
+            </div>
+            <div class="input-section" id="player1-input">
+                <label for="player1_name">Player 1 Name:</label>
+                <input type="text" id="player1_name" name="player1_name" required>
+            </div>
+            <div class="input-section" id="player2-input">
+                <label for="player2_name">Player 2 Name:</label>
+                <input type="text" id="player2_name" name="player2_name" value="AI" required>
+            </div>
+            <div class="input-section difficulty-section">
+                <label for="difficulty">Select Difficulty:</label>
+                <div class="button-group">
+                    <button type="button" class="difficulty-button" data-level="Easy">Easy</button>
+                    <button type="button" class="difficulty-button" data-level="Fair">Fair</button>
+                    <button type="button" class="difficulty-button" data-level="Hard">Hard</button>
+                </div>
+            </div>
+            <div class="error-message-container">
+                <p class="error-message" id="error-message"></p>
+            </div>
+            <button type="submit" id="start-button">Start Game</button>
+        </form>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

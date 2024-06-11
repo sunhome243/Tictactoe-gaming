@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tictactoe-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tictactoe-backend
+  template:
+    metadata:
+      labels:
+        app: tictactoe-backend
+    spec:
+      containers:
+        - name: backend
+          image: whalerider02/tictactoe-backend:latest
+          env:
+            - name: FRONTEND_STATIC_PATH
+              value: /usr/share/nginx/html/
+            - name: FRONTEND_TEMPLATES_PATH
+              value: /usr/share/nginx/html/templates
+          ports:
+            - containerPort: 5000
