@@ -1,23 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tictactoe-backend
+  name: tic-tac-toe-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tictactoe-backend
+      app: tic-tac-toe-frontend
   template:
     metadata:
       labels:
-        app: tictactoe-backend
+        app: tic-tac-toe-frontend
     spec:
       containers:
+      - name: frontend
+        image: whalerider02/tictactoefront:6
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80 # Your frontend web server port
         - name: backend
           image: whalerider02/tictactoe-backend:latest
           env:
             - name: FRONTEND_STATIC_PATH
-              value: /usr/share/nginx/html/static
+              value: /usr/share/nginx/html/
             - name: FRONTEND_TEMPLATES_PATH
               value: /usr/share/nginx/html/templates
           ports:

@@ -72,6 +72,9 @@ def index():
 def game():
     game_data = load_game_data()
 
+    if request.method == 'GET':
+        return render_template('game.html', game_data=game_data)
+
     if request.method == 'POST':
         if 'num_players' in request.json:
             num_players = request.json.get('num_players')
